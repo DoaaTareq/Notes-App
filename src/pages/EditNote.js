@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import "../styles/EditNote.css";
-import NoteForm from "./NoteForm";
+import NoteForm from "../components/NoteForm";
 
 const EditNote = () => {
     const { id } = useParams();

@@ -1,27 +1,25 @@
 import React, { useEffect, useState } from "react";
+import "../styles/NoteForm.css";
 
     const NoteForm = ({ onAddNote, editingNote, onUpdateNote }) => {
         const [noteContent, setNoteContent] = useState(editingNote ? editingNote.content : "");
         const [noteTitle, setNoteTitle] = useState(editingNote ? editingNote.title : "");
 
-        // If editing, populate the form with the note's current content and title
         useEffect(() => {
             if (editingNote) {
                 setNoteContent(editingNote.content);
                 setNoteTitle(editingNote.title);
             } else {
-                setNoteContent(""); // Reset if not editing
-                setNoteTitle(""); // Reset if not editing
+                setNoteContent("");
+                setNoteTitle("");
             }
         }, [editingNote]);
 
         const handleSubmit = (e) => {
             e.preventDefault();
             if (editingNote) {
-                // Update the existing note
                 onUpdateNote(editingNote, noteTitle, noteContent);
             } else {
-                // Add a new note
                 onAddNote({ id: Date.now(), title: noteTitle, content: noteContent });
             }
             setNoteContent("");
