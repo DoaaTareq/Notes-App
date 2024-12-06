@@ -1,0 +1,13 @@
+To Run the Notes-App please choose between:
+
+1- Install nodejs 
+2- run "npm i" 
+3- run "npm start"
+4- Access the app on http://localhost:3000/
+
+
+OR
+
+1- Build the image (docker build -t notes-app .)
+2- Run the container (docker run -p 3000:80 notes-app)
+3- Access the app on http://localhost:3000/

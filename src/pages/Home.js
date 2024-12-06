@@ -1,3 +1,4 @@
+import React, { useCallback } from "react";
 import NotesList from "../components/NotesList";
 import NoteForm from "../components/NoteForm";
 import { useLocalStorage } from "../hooks/useLocalStorage";
@@ -6,22 +7,14 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 const Home = () => {
     const [notes, setNotes] = useLocalStorage("notes", []);
 
-    const addNote = (newNote) => {
+    const addNote = useCallback((newNote) => {
         if (!newNote.title) return;
         setNotes((prevNotes) => [...prevNotes, newNote]);
-    };
+    }, [setNotes]);
 
-    const deleteNote = (id) => {
+    const deleteNote = useCallback((id) => {
         setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
-    };
-
-    const updateNote = (id, updatedContent) => {
-        setNotes((prevNotes) =>
-            prevNotes.map((note) =>
-                note.id === id ? { ...note, content: updatedContent } : note
-            )
-        );
-    };
+    }, [setNotes]);
     
     return (
         <>

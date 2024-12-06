@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "../styles/NoteForm.css";
 
     const NoteForm = ({ onAddNote, editingNote, onUpdateNote }) => {
@@ -15,16 +15,16 @@ import "../styles/NoteForm.css";
             }
         }, [editingNote]);
 
-        const handleSubmit = (e) => {
+        const handleSubmit = useCallback((e) => {
             e.preventDefault();
             if (editingNote) {
-                onUpdateNote(editingNote, noteTitle, noteContent);
+            onUpdateNote(editingNote, noteTitle, noteContent);
             } else {
-                onAddNote({ id: Date.now(), title: noteTitle, content: noteContent });
+            onAddNote({ id: Date.now(), title: noteTitle, content: noteContent });
             }
             setNoteContent("");
             setNoteTitle("");
-        };
+        }, [editingNote, noteTitle, noteContent, onAddNote, onUpdateNote]);
 
         return (
             <form className="note-form" onSubmit={handleSubmit}>
