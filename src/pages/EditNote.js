@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import "../styles/EditNote.css";
-import NoteForm from "./NoteForm";
+import NoteForm from "../components/NoteForm";
 
 const EditNote = () => {
     const { id } = useParams();
@@ -18,20 +18,6 @@ const EditNote = () => {
         }
     }, [note, navigate]);
 
-    const handleUpdate = (oldNote, newTitle, newContent) => {
-        console.log(oldNote, newTitle, newContent);
-        const updatedNotes = notes.map((note) => {
-            
-            if (note.id == oldNote.id) {
-                return { ...note, title: newTitle, content: newContent };
-            }
-            return note;
-        });
-        
-        console.log("after update",notes);
-        setNotes(updatedNotes);
-        navigate("/");
-    };
 
     return (
         <>

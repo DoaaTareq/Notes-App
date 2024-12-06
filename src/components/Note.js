@@ -1,7 +1,7 @@
 import { FaTrash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
-const Note = ({ note, onDelete, onEdit }) => {
+const Note = ({ note, onDelete }) => {
     const navigate = useNavigate();
 
     const handleEdit = () => {

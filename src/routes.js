@@ -1,18 +1,12 @@
 import { useRoutes } from 'react-router-dom';
-import NotesList from "./components/NotesList";
-import NoteForm from "./components/NoteForm";
-import EditNote from "./components/EditNote";
+import Home from "./pages/Home";
+import EditNote from "./pages/EditNote";
 
-const AppRoutes = ({ notes, addNote, deleteNote, updateNote }) => {
+const AppRoutes = () => {
     return useRoutes([
         {
             path: "/",
-            element: (
-                <>
-                    <NoteForm onAddNote={addNote} editingNote={false} />
-                    <NotesList notes={notes} onDelete={deleteNote} />
-                </>
-            ),
+            element: <Home/>
         },
         {
             path: "/edit/:id",
