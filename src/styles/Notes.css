@@ -1,0 +1,73 @@
+.notes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.note {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.2s;
+    display: flex;
+}
+
+.note:hover {
+    transform: translateY(-5px);
+}
+
+.note p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+    width: 70%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    line-height: 30px;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.button-container button:hover {
+    background: #c0392b;
+}
+
+
+.btn-edit {
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    line-height: 30px;
+    text-align: center;
+    transition: background 0.3s;
+}

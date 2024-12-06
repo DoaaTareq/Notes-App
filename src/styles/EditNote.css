@@ -1,0 +1,57 @@
+.edit-note {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.edit-note h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.edit-note textarea {
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+}
+
+.edit-note textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.edit-note button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.edit-note button:hover {
+    background: #2980b9;
+}
+
+.cancel-btn{
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.cancel-btn:hover {
+    background: #c0392b;
+}

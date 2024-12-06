@@ -1,0 +1,47 @@
+.note-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.note-form textarea {
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+}
+
+.note-form textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+.note-form input[type="text"] {
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+}
+
+.note-form input[type="text"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.note-form button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.note-form button:hover {
+    background: #2980b9;
+}
