@@ -1,13 +1,13 @@
+import { useCallback } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 const Note = ({ note, onDelete }) => {
     const navigate = useNavigate();
 
-    const handleEdit = () => {
-        console.log(note);
+    const handleEdit = useCallback(() => {
         navigate(`/edit/${note.id}`);
-    };
+    }, [navigate, note.id]);
 
     return (
         <div className="note" onClick={handleEdit}>
