@@ -1,11 +1,12 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import NotesList from "../components/NotesList";
 import NoteForm from "../components/NoteForm";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-
+import SearchBar from "../components/SearchBar";
 
 const Home = () => {
     const [notes, setNotes] = useLocalStorage("notes", []);
+    const [searchQuery, setSearchQuery] = useState("");
 
     const addNote = useCallback((newNote) => {
         if (!newNote.title) return;
@@ -15,11 +16,19 @@ const Home = () => {
     const deleteNote = useCallback((id) => {
         setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
     }, [setNotes]);
+
+    const filteredNotes = useMemo(() => {
+        return notes.filter((note) =>
+            note.title.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+    }, [notes, searchQuery]);
+    
     
     return (
         <>
             <NoteForm onAddNote={addNote} editingNote={false}/>
-            <NotesList notes={notes} onDelete={deleteNote} /> 
+            <SearchBar query={searchQuery} onSearch={setSearchQuery} />
+            <NotesList notes={filteredNotes} onDelete={deleteNote} /> 
         </>
     );
 };

@@ -8,7 +8,7 @@ const EditNote = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [notes, setNotes] = useLocalStorage("notes", []);
-    const note = notes.find((note) => note.id == id);
+    const note = notes.find((note) => note.id.toString() === id);
 
     useEffect(() => {
         if (!note) {
@@ -18,7 +18,7 @@ const EditNote = () => {
 
     const handleUpdate = useCallback((oldNote, newTitle, newContent) => {
         const updatedNotes = notes.map((note) => {
-            if (note.id == oldNote.id) {
+            if (note.id === oldNote.id) {
                 return { ...note, title: newTitle, content: newContent };
             }
             return note;
@@ -30,7 +30,7 @@ const EditNote = () => {
 
     return (
         <>
-            <NoteForm editingNote={note} onUpdateNote={handleUpdate}/>
+            <NoteForm editingNote={notes} onUpdateNote={handleUpdate}/>
             <button className="cancel-btn" onClick={ () => navigate("/")}>Cancel</button>
         </>
     );

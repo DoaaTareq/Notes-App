@@ -4,6 +4,7 @@ To Run the Notes-App please choose between:
 2- run "npm i" 
 3- run "npm start"
 4- Access the app on http://localhost:3000/
+5- run "npm test" to run test cases 
 
 
 OR
