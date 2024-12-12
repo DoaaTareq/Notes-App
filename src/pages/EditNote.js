@@ -30,7 +30,7 @@ const EditNote = () => {
 
     return (
         <>
-            <NoteForm editingNote={notes} onUpdateNote={handleUpdate}/>
+            <NoteForm editingNote={note} onUpdateNote={handleUpdate}/>
             <button className="cancel-btn" onClick={ () => navigate("/")}>Cancel</button>
         </>
     );
