@@ -14,15 +14,12 @@ const Home = () => {
     }, [setNotes]);
 
     const handleFilter = useCallback((value) => {
-        console.log("value", value);
         if (value === "") {
             setFilterBy([]);
             return
         }
         if (!filterBy.includes(value)) {
-            console.log("before", filterBy);
             setFilterBy(prevFilterBy => [...prevFilterBy, value]);
-            console.log("after", filterBy);
         }
     } , [filterBy]);
 

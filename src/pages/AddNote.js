@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import "../styles/EditNote.css";
@@ -11,10 +11,9 @@ const AddNote = () => {
 
     const addNote = useCallback((newNote) => {
         if (!newNote.title) return;
-        console.log(newNote);
         setNotes((prevNotes) => [...prevNotes, newNote]);
         navigate("/")
-    }, [setNotes]);
+    }, [setNotes, navigate]);
 
     return (
         <>

@@ -1,13 +1,13 @@
 import { useState } from "react";
 import CryptoJS from "crypto-js";
 
-function generateSecureKey() {
-    const array = new Uint8Array(32);
-    window.crypto.getRandomValues(array);
-    return Array.from(array).map(byte => byte.toString(16).padStart(2, '0')).join('');
-}
+// function generateSecureKey() {
+//     const array = new Uint8Array(32);
+//     window.crypto.getRandomValues(array);
+//     return Array.from(array).map(byte => byte.toString(16).padStart(2, '0')).join('');
+// }
 
-const encryptionKey = generateSecureKey();
+const encryptionKey = "secure key";
 
 export function useLocalStorage(key, initialValue) {
     const decrypt = (encryptedValue) => {
@@ -35,6 +35,7 @@ export function useLocalStorage(key, initialValue) {
     const [storedValue, setStoredValue] = useState(() => {
         try {
             const item = localStorage.getItem(key);
+            console.log("item", item);  
             if (item) {
                 const decryptedItem = decrypt(item);
                 return decryptedItem ? JSON.parse(decryptedItem) : initialValue;

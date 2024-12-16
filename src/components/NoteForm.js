@@ -6,7 +6,7 @@ const NoteForm = ({ onAddNote, editingNote, onUpdateNote }) => {
     const [noteContent, setNoteContent] = useState(editingNote ? editingNote.content : "");
     const [noteTitle, setNoteTitle] = useState(editingNote ? editingNote.title : "");
     const [noteCategory, setNoteCategory] = useState(editingNote ? editingNote.category : "");
-    console.log(editingNote);
+
     useEffect(() => {
         if (editingNote) {
             setNoteContent(editingNote.content);

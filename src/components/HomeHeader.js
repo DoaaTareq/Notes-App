@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/HomeHeader.css";
-import { useState } from "react";
 import "../styles/SearchBar.css";
 
 const HomeHeader = ({ query, onSearch }) => {

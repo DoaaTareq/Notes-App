@@ -1,10 +1,9 @@
 import React from "react";
 import { app_icons } from "../const";
 import "../styles/Filter.css";
-import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const Filter = ({filterBy, onFilterChange}) => {
-    console.log(filterBy);
+
     return (
         <>
             <span className={"filter-text"}>Filter by:</span>

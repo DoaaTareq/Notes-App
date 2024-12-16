@@ -12,13 +12,13 @@ const Note = ({ note, onDelete }) => {
 
     return (
         <div className="note" onClick={handleEdit}>
-            <div
+            {note.category? <div
                 className="category-icon"
                 style={{ backgroundColor: categoryColors[note.category] }}
                 title={note.category}
             >
                 {app_icons[note.category]}
-            </div>
+            </div>: null}
             <p>{note.title.length > 29 ? `${note.title.substring(0, 17)} ...` : note.title}</p>
             <div className="button-container">
                 <button className='btn-delete' onClick={() => onDelete(note.id)}>
