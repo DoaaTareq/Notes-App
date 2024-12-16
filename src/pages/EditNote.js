@@ -16,10 +16,10 @@ const EditNote = () => {
         }
     }, [note, navigate]);
 
-    const handleUpdate = useCallback((oldNote, newTitle, newContent) => {
+    const handleUpdate = useCallback((oldNote, newTitle, newContent, newCategory) => {
         const updatedNotes = notes.map((note) => {
             if (note.id === oldNote.id) {
-                return { ...note, title: newTitle, content: newContent };
+                return { ...note, title: newTitle, content: newContent, category: newCategory };
             }
             return note;
         });

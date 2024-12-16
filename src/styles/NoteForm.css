@@ -31,7 +31,7 @@
     outline: none;
 }
 
-.note-form button {
+.add-btn {
     background: #3498db;
     color: white;
     border: none;
@@ -42,6 +42,18 @@
     transition: background 0.3s;
 }
 
-.note-form button:hover {
+.add-btn:hover {
     background: #2980b9;
+}
+
+select {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+select:focus {
+    border-color: #3498db;
+    outline: none;
 }

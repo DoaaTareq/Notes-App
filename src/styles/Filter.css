@@ -1,0 +1,21 @@
+.filter-dropdown{
+    margin-left: 15px;
+    width: 76%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.filter-text{
+    margin-left: 10px
+}
+.filter-item{
+    padding-right: 10px;
+}
+.filter-items-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px 20px 20px;
+    width: 75%;
+}

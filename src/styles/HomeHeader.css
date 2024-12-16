@@ -1,0 +1,11 @@
+.home-header{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.filter-btn{
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}

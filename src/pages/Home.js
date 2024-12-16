@@ -1,33 +1,45 @@
 import React, { useCallback, useMemo, useState } from "react";
 import NotesList from "../components/NotesList";
-import NoteForm from "../components/NoteForm";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import SearchBar from "../components/SearchBar";
+import HomeHeader from "../components/HomeHeader";
+import Filter from "../components/Filter";
 
 const Home = () => {
     const [notes, setNotes] = useLocalStorage("notes", []);
     const [searchQuery, setSearchQuery] = useState("");
-
-    const addNote = useCallback((newNote) => {
-        if (!newNote.title) return;
-        setNotes((prevNotes) => [...prevNotes, newNote]);
-    }, [setNotes]);
+    const [filterBy, setFilterBy] = useState([]);
 
     const deleteNote = useCallback((id) => {
         setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
     }, [setNotes]);
 
+    const handleFilter = useCallback((value) => {
+        console.log("value", value);
+        if (value === "") {
+            setFilterBy([]);
+            return
+        }
+        if (!filterBy.includes(value)) {
+            console.log("before", filterBy);
+            setFilterBy(prevFilterBy => [...prevFilterBy, value]);
+            console.log("after", filterBy);
+        }
+    } , [filterBy]);
+
     const filteredNotes = useMemo(() => {
-        return notes.filter((note) =>
+        const filtered = filterBy.length > 0 
+            ? notes.filter(note => filterBy.includes(note.category)) 
+            : notes;
+        return filtered.filter((note) =>
             note.title.toLowerCase().includes(searchQuery.toLowerCase())
         );
-    }, [notes, searchQuery]);
+    }, [notes, searchQuery, filterBy]);
     
     
     return (
         <>
-            <NoteForm onAddNote={addNote} editingNote={false}/>
-            <SearchBar query={searchQuery} onSearch={setSearchQuery} />
+            <HomeHeader query={searchQuery} onSearch={setSearchQuery}/>
+            <Filter filterBy={filterBy} onFilterChange={handleFilter}/>
             <NotesList notes={filteredNotes} onDelete={deleteNote} /> 
         </>
     );
